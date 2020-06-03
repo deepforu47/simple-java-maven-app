@@ -10,6 +10,12 @@ pipeline {
             steps {
                 sh '/usr/local/bin/mvn test'
             }
+        stage('SonarQube analysis') {
+                withSonarQubeEnv('local') {
+                    sh 'mvn clean package sonar:sonar'
+                    } // submitted SonarQube taskId is automatically attached to the pipeline context
+        }
+        
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
