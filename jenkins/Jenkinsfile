@@ -14,7 +14,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('local') {
-                    sh '/usr/local/bin/mvn clean package sonar:sonar -Dsonar.projectKey=localsonar'
+                    sh '/usr/local/bin/mvn clean package -Dsonar.projectKey=localsonar -Dsonar.projectName=localsonar -Dsonar.projectDescription=localsonar sonar:sonar '
                     } // submitted SonarQube taskId is automatically attached to the pipeline context
             }
         }
