@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh '/usr/local/bin/mvn test'
             }
+        }
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('local') {
