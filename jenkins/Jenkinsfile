@@ -11,9 +11,11 @@ pipeline {
                 sh '/usr/local/bin/mvn test'
             }
         stage('SonarQube analysis') {
+            steps {
                 withSonarQubeEnv('local') {
                     sh 'mvn clean package sonar:sonar'
                     } // submitted SonarQube taskId is automatically attached to the pipeline context
+            }
         }
         
             post {
