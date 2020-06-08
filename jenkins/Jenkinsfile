@@ -22,7 +22,7 @@ pipeline {
                     } // submitted SonarQube taskId is automatically attached to the pipeline context
             }
         }
-         stage('Sonar Quality Gate') {
+/*         stage('Sonar Quality Gate') {
              steps {		                 
                     script {
                         //sleep 180
@@ -33,7 +33,7 @@ pipeline {
                                     }
                         }
                     }
-             }
+             }*/
          }
    }
         
